@@ -33,5 +33,4 @@ public class movement : MonoBehaviour
             Destroy(newBullet.gameObject, 5);
         }
     }
-
 }

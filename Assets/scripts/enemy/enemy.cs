@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    void Start()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("jaja");
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("janee");
+        if (collision.gameObject.tag == "Bullet")
+        {
+            GameObject scoreManager = GameObject.Find("scoreManager");
+            scoreManager.GetComponent<score>().AddScore(10);
+            Destroy(gameObject);
+        }
     }
 }
